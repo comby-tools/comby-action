@@ -14,5 +14,9 @@ else
     curl $COMBY_CONFIG > .comby
 fi
 
-/usr/local/bin/comby -config .comby &> out.diff
-cat out.diff
+# replace in place
+/usr/local/bin/comby -config .comby -i
+# get the patch
+git diff > p.patch
+# debug
+cat p.patch
