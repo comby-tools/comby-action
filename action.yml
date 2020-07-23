@@ -3,16 +3,11 @@ description: Run comby on your repository
 author: Rijnard van Tonder
 
 inputs:
-    match_template:
-        description: A match template.
-        required: true
-    rewrite_template:
-        description: A rewrite template.
-        required: true
+    config:
+        description: A URL for a configuration file. If unset, will look for .comby in the repo.
 
 runs:
     using: docker
     image: Dockerfile
     env:
-        COMBY_M: ${{ inputs.match_template }}
-        COMBY_R: ${{ inputs.rewrite_template }}
+        COMBY_CONFIG: ${{ inputs.config }}
