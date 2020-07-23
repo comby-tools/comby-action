@@ -7,7 +7,7 @@ LABEL maintainer="Rijnard van Tonder <rvantonder@gmail.com>"
 LABEL name="comby-action"
 LABEL org.opencontainers.image.source="https://github.com/comby-tools/comby-action"
 
-RUN apk --no-cache add bash pcre sqlite-dev curl
+RUN apk --no-cache add bash pcre sqlite-dev curl git
 
 COPY --from=binary /usr/local/bin/comby /usr/local/bin/comby
 COPY --from=binary /usr/local/bin/comby-third-party-licenses /usr/local/bin/comby-third-party-licenses
