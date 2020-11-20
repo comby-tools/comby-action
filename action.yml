@@ -3,11 +3,19 @@ description: Run comby on your repository
 author: Rijnard van Tonder
 
 inputs:
-    config:
-        description: A URL for a configuration file. If unset, will look for .comby in the repo.
+    args:
+        description: 'comby command line args'
+        required: true
+        default: '-help'
+outputs:
+    exit-code:
+        description: 'The exit code of the script. Emits exit code 2 if files were rewritten.'
 
 runs:
     using: docker
     image: Dockerfile
-    env:
-        COMBY_CONFIG: ${{ inputs.config }}
+    args:
+        - ${{ inputs.args }}
+branding:
+    icon: 'code'
+    color: 'orange'
